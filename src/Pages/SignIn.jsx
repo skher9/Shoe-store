@@ -2,20 +2,23 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  height: 400px;
+  height: 500px;
   margin-left: 450px;
   margin-top: 70px;
-  border: solid;
   width: 500px;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: solid;
 `;
 
 const Wrapper = styled.div``;
 
 const Title = styled.h1`
   text-align: center;
+  margin-top: 30px;
 `;
 
 const Label = styled.label`
@@ -32,14 +35,14 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  margin-top: 25px;
+  margin-top: 40px;
   margin-left: 50px;
-  height: 30px;
+  height: 40px;
   width: 400px;
   background-color: #0766ad;
   cursor: pointer;
   border-radius: 8px;
-  font-size: larger;
+  font-size: x-large;
   font-weight: 200;
 `;
 
@@ -49,6 +52,7 @@ const SubmitDiv = styled.div``;
 
 const Note = styled.p`
   margin-left: 50px;
+  margin-top: 20px;
   font-size: larger;
 `;
 
@@ -75,7 +79,9 @@ const SignIn = () => {
             <Button>Login as guest</Button>
           </SubmitDiv>
         </Wrapper>
-        <Note>Don't have an account? SignUp</Note>
+        <Note>
+          Don't have an account? <Link to="/SignUp">SignUp</Link>
+        </Note>
       </Container>
       <Footer />
     </>

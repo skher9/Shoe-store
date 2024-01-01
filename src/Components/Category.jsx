@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   text-align: center;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 const Title = styled.h1`
@@ -57,8 +63,10 @@ const Category = () => {
         {category.map((e) => {
           return (
             <CategoryContainer>
-              <Image src={e.src} />
-              <Button>Shop for {e.title}</Button>
+              <StyledLink to="/Items">
+                <Image src={e.src} />
+                <Button>Shop for {e.title}</Button>
+              </StyledLink>
             </CategoryContainer>
           );
         })}
