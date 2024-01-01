@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div`
   text-align: center;
@@ -47,20 +48,7 @@ const Button = styled.button`
 `;
 
 const Category = () => {
-  const category = [
-    {
-      src: "https://t4.ftcdn.net/jpg/06/06/13/09/240_F_606130950_ZFeY1xVaihITh5D04HRIcGZdUVlPOnK7.jpg",
-      name: "Men",
-    },
-    {
-      src: "https://t3.ftcdn.net/jpg/06/12/77/54/240_F_612775466_5uk4TMTc2C3On01NJAc1ut6YfeKIe4rm.jpg",
-      name: "Women",
-    },
-    {
-      src: "https://t4.ftcdn.net/jpg/05/14/05/89/240_F_514058939_1lGwoKXUCWrT37c5iYnOAxGx7TsuycAS.jpg",
-      name: "Kids",
-    },
-  ];
+  const category = useSelector((state) => state.category);
 
   return (
     <Container>
@@ -70,7 +58,7 @@ const Category = () => {
           return (
             <CategoryContainer>
               <Image src={e.src} />
-              <Button>Shop for {e.name}</Button>
+              <Button>Shop for {e.title}</Button>
             </CategoryContainer>
           );
         })}

@@ -1,8 +1,12 @@
 import './App.css';
-import Items from './Components/Items';
-import store  from 'redux';
+import Items from './Pages/Items';
+import store  from './redux/store';
+import Wishlist from './Pages/Wishlist'
+import SignIn from './Pages/SignIn'
+import Cart from './Pages/Cart'
+import Product from './Pages/Product'
 import { Provider } from 'react-redux';
-import Navbar from './Components/Navbar'
+import Home from './Components/Home';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 function App() {
@@ -10,8 +14,12 @@ function App() {
     <Provider store={store}>
     <BrowserRouter>
      <Routes>
-      <Route path='/' element={<Navbar/>}/>
+      <Route path='/' element={<Home/>}/>
       <Route path='/Items' element={<Items/>}/>
+      <Route path='/SignIn' element={<SignIn/>}/>
+      <Route path='/Wishlist' element={<Wishlist/>}/>
+      <Route path='/Cart' element={<Cart/>}/>
+      <Route path='/Product/:id/' element={<Product/>}/>
      </Routes>
     </BrowserRouter>
   </Provider>

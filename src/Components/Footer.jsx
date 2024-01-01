@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -8,7 +9,10 @@ const Container = styled.div`
   height: 200px;
   margin-top: 30px;
   margin-bottom: 30px;
+  border-radius: 10px;
   background-color: #d4e2d4;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.5),
+    0 -4px 2px -2px rgba(0, 0, 0, 0.5);
 `;
 
 const Wrapper = styled.div`
@@ -80,7 +84,14 @@ const LI = styled.li`
   cursor: pointer;
 `;
 
-const Link = styled.a``;
+const A = styled.a`
+  text-decoration: none;
+  color: black;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+`;
 
 const Author = styled.p`
   margin-left: 300px;
@@ -97,19 +108,19 @@ const Footer = () => {
           <Heading>Connect with me.</Heading>
           <Icons>
             <Twitter>
-              <Link href="https://twitter.com/shravani_k89430">
+              <A href="https://twitter.com/shravani_k89430">
                 <TwitterIcon />
-              </Link>
+              </A>
             </Twitter>
             <LinkedIn>
-              <Link href="https://www.linkedin.com/in/shravani-kher-0875281b6/">
+              <A href="https://www.linkedin.com/in/shravani-kher-0875281b6/">
                 <LinkedInIcon />
-              </Link>
+              </A>
             </LinkedIn>
             <GitHub>
-              <Link href="https://github.com/skher9">
+              <A href="https://github.com/skher9">
                 <GitHubIcon />
-              </Link>
+              </A>
             </GitHub>
           </Icons>
         </First>
@@ -120,10 +131,18 @@ const Footer = () => {
         <Third>
           <Heading>Quick links</Heading>
           <UL>
-            <LI>Home.</LI>
-            <LI>Explore.</LI>
-            <LI>Cart.</LI>
-            <LI>Wishlist.</LI>
+            <StyledLink to="/">
+              <LI>Home.</LI>
+            </StyledLink>
+            <StyledLink to="/Items">
+              <LI>Explore.</LI>
+            </StyledLink>
+            <StyledLink to="/Cart">
+              <LI>Cart.</LI>
+            </StyledLink>
+            <StyledLink to="/Wishlist">
+              <LI>Wishlist.</LI>
+            </StyledLink>
           </UL>
         </Third>
       </Wrapper>
