@@ -33,7 +33,7 @@ const Image = styled.img`
   margin-bottom: 20px;
   transition: transform 0.3s ease-in-out;
   &:hover {
-    transform: scale(1.1); /* Scale the image slightly on hover */
+    transform: scale(1.1);
   }
 `;
 
