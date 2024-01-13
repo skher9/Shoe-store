@@ -119,6 +119,8 @@ const Product = () => {
                 </InfoContainer>
               </Wrapper>
             );
+          } else {
+            return 0;
           }
         })}
       </Container>

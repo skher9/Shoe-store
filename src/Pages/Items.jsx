@@ -3,7 +3,6 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductCard from "./Components/ProductCard";
 
