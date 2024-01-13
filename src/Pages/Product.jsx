@@ -87,7 +87,7 @@ const Product = () => {
       <Navbar />
       <Container>
         {products.map((item) => {
-          if (item.id == id) {
+          if (item.id === id) {
             return (
               <Wrapper>
                 <ImageContainer>
