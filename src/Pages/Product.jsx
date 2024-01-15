@@ -87,7 +87,7 @@ const Product = () => {
       <Navbar />
       <Container>
         {products.map((item) => {
-          if (item.id === id) {
+          if (item.id.toString() === id.toString()) {
             return (
               <Wrapper>
                 <ImageContainer>
@@ -120,7 +120,7 @@ const Product = () => {
               </Wrapper>
             );
           } else {
-            return 0;
+            return null;
           }
         })}
       </Container>
