@@ -9,6 +9,7 @@ import Product from './Pages/Product'
 import { Provider } from 'react-redux';
 import Home from './Components/Home';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Checkout from './Pages/Checkout';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/Cart' element={<Cart/>}/>
       <Route path='/Product/:id/' element={<Product/>}/>
       <Route path='/Items/:name/' element={<Items/>}/>
+      <Route path='/Checkout' element={<Checkout/>}/>
      </Routes>
     </BrowserRouter>
   </Provider>

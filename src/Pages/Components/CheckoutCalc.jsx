@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Container = styled.div``;
@@ -72,7 +73,9 @@ const CheckoutCalc = () => {
           <ItemText>Total</ItemText>
           <ItemPrice>₹{subTotal + Shipping}</ItemPrice>
         </Item>
-        <Button>Checkout</Button>
+        <Link to="/Checkout">
+          <Button>Checkout</Button>
+        </Link>
       </Wrapper>
     </Container>
   );

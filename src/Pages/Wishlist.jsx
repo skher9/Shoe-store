@@ -113,6 +113,33 @@ const Explore = styled.button`
   }
 `;
 
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+`;
+
+const TopButton = styled.button`
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  width: 200px;
+`;
+
+const TopTexts = styled.div``;
+const TopText = styled.span`
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+`;
+const Title = styled.h1`
+  font-weight: 300;
+  text-align: center;
+`;
+
 const Wishlist = () => {
   const favProducts = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
@@ -128,6 +155,7 @@ const Wishlist = () => {
   return (
     <Container>
       <Navbar />
+      <Title>YOUR WISHLIST</Title>
       {favProducts.length === 0 ? (
         <EmptyContainer>
           <EmptyImage src="https://img.freepik.com/premium-vector/cute-character-fabric-bag-with-sad-emotions-depressed-face-down-eyes-arms-legs-shopper-with-melancholy-face-ecological-alternative-plastic-bag-vector-flat-illustration_427567-4289.jpg" />
@@ -140,37 +168,50 @@ const Wishlist = () => {
           </Link>
         </EmptyContainer>
       ) : (
-        <Wrapper>
-          {favProducts.map((item) => {
-            return (
-              <ItemContainer>
-                <Image src={item.images[0]}></Image>
-                <Cross
-                  onClick={() => {
-                    handleRemoveFromWishlist(item.id);
-                  }}
-                >
-                  <CloseIcon />
-                </Cross>
-                <InfoContainer>
-                  <Brand>Brand: {item.brand}</Brand>
-                  <Name>Name: {item.name}</Name>
-                  <Price>Price: {item.price}</Price>
-                  <Delivery>Delivered within {item.delivery}</Delivery>
-                  <Link to="/Cart">
-                    <Button
-                      onClick={() => {
-                        handleMoveToCart(item.id);
-                      }}
-                    >
-                      Add to Cart
-                    </Button>
-                  </Link>
-                </InfoContainer>
-              </ItemContainer>
-            );
-          })}
-        </Wrapper>
+        <>
+          <Top>
+            <Link to="/Items">
+              <TopButton>CONTINUE SHOPPING</TopButton>
+            </Link>
+            <TopTexts>
+              <TopText>Wishlist({favProducts.length})</TopText>
+            </TopTexts>
+            <Link to="/Cart">
+              <TopButton type="filled">SHOPPING CART</TopButton>
+            </Link>
+          </Top>
+          <Wrapper>
+            {favProducts.map((item) => {
+              return (
+                <ItemContainer>
+                  <Image src={item.images[0]}></Image>
+                  <Cross
+                    onClick={() => {
+                      handleRemoveFromWishlist(item.id);
+                    }}
+                  >
+                    <CloseIcon />
+                  </Cross>
+                  <InfoContainer>
+                    <Brand>Brand: {item.brand}</Brand>
+                    <Name>Name: {item.name}</Name>
+                    <Price>Price: {item.price}</Price>
+                    <Delivery>Delivered within {item.delivery}</Delivery>
+                    <Link to="/Cart">
+                      <Button
+                        onClick={() => {
+                          handleMoveToCart(item.id);
+                        }}
+                      >
+                        Add to Cart
+                      </Button>
+                    </Link>
+                  </InfoContainer>
+                </ItemContainer>
+              );
+            })}
+          </Wrapper>
+        </>
       )}
       <Footer />
     </Container>

@@ -108,14 +108,15 @@ const Product = () => {
                       Add to Cart
                     </Button>
                   </Link>
-
-                  <Button
-                    onClick={() => {
-                      handleAddToWishlist(item.id);
-                    }}
-                  >
-                    Add to Wishlist
-                  </Button>
+                  <Link to="/Wishlist">
+                    <Button
+                      onClick={() => {
+                        handleAddToWishlist(item.id);
+                      }}
+                    >
+                      Add to Wishlist
+                    </Button>
+                  </Link>
                 </InfoContainer>
               </Wrapper>
             );
